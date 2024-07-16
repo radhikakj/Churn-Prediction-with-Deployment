@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Churn Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 40px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+
+input[type=text], .custom-select {
+width:100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+form, table{
+width:100%;
+}
+
+input[type=submit] {
+  background-color: #FB0000;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 230px;
+
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+
+}
+
+.container {
+  border-radius: 5px;
+  background-color: black;
+  padding: 20px;
+  display: flex;
+}
+
+.form_wrapper {
+  flex:1;
+  text-align: center;
+}
+label{
+color:white;
+}
+
+.col-label{
+width:25%;
+}
+
+
+
+</style>
+</head>
+<body>
+<h1> Customer Churn Predictor Project </h1>
+<div class="container">
+  <form action="/send", name="send_data", method="post">
+      <table>
+
+<tr>
+    <td  class="col-label">  <label>Tenure</label></td>
+       <td  class="col-input">  <input type="text" name="Tenure" placeholder="Tenure"></td></tr>
+
+<tr>
+    <td  class="col-label"> <label>PreferredLoginDevice</label></td>
+      <td  class="col-input">
+        <select class="custom-select" name="PreferredLoginDevice">
+            <option value="PreferredLoginDevice_Computer">Computer</option>
+            <option value="PreferredLoginDevice_Mobile Phone">Mobile Phone</option>
+        </select></td></tr>
+<tr>
+    <td  class="col-label"> <label>CityTier</label></td>
+     <td  class="col-input">
+        <select class="custom-select" name="CityTier">
+            <option value="CityTier_1">1</option>
+            <option value="CityTier_2">2</option>
+            <option value="CityTier_3">3</option>
+        </select></td></tr>
+
+<tr>
+    <td  class="col-label">  <label>WarehouseToHome</label></td>
+      <td  class="col-input">  <input type="text" name="WarehouseToHome" placeholder="WarehouseToHome"></td></tr>
+    
+<tr>
+    <td  class="col-label"> <label>PreferredPaymentMode</label></td>
+     <td  class="col-input">
+        <select class="custom-select" name="PreferredPaymentMode">
+            <option value="PreferredPaymentMode_Cash on Delivery">Cash on Delivery</option>
+            <option value="PreferredPaymentMode_Credit Card">Credit Card</option>
+            <option value="PreferredPaymentMode_Debit Card">Debit Card</option>
+            <option value="PreferredPaymentMode_E wallet">E wallet</option>
+            <option value="PreferredPaymentMode_UPI">UPI</option>
+        </select></td></tr>
+
+<tr>
+    <td class="col-label"><label>Gender</label></td>
+   <td  class="col-input">
+        <select class="custom-select" name="Gender">
+            <option value='Gender_Male'>Male</option>
+            <option value='Gender_Female'>Female</option>
+        </select></td></tr>
+
+<tr>
+    <td  class="col-label">  <label>NumberOfDeviceRegistered</label></td>
+      <td  class="col-input">  <input type="text" name="NumberOfDeviceRegistered" placeholder="NumberOfDeviceRegistered"></td></tr>
+    
+<tr>
+    <td  class="col-label"> <label>PreferedOrderCat</label></td>
+      <td  class="col-input">
+        <select class="custom-select" name="PreferedOrderCat">
+            <option value="PreferedOrderCat_Fashion">Fashion</option>
+            <option value="PreferedOrderCat_Grocery">Grocery</option>
+            <option value="PreferedOrderCat_Laptop & Accessory">Grocery</option>
+            <option value="PreferedOrderCat_Mobile Phone">Grocery</option>
+            <option value="PreferedOrderCat_Others">Grocery</option>
+
+
+
+        </select></td></tr>
+
+
+
+<tr>
+     <td  class="col-label"> <label>SatisfactionScore</label></td>
+        <td  class="col-input">
+        <select class="custom-select" name="SatisfactionScore">
+            <option value="SatisfactionScore_1">1</option>
+            <option value="SatisfactionScore_2">2</option>
+            <option value="SatisfactionScore_3">3</option>
+            <option value="SatisfactionScore_4">4</option>
+            <option value="SatisfactionScore_5">5</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>MaritalStatus</label></td>
+       <td  class="col-input">
+        <select class="custom-select" name="MaritalStatus">
+            <option value="MaritalStatus_Divorced">Divorced</option>
+            <option value="MaritalStatus_Married">Married</option>
+            <option value="MaritalStatus_Single">Single</option>
+        </select></td></tr>
+
+<tr>
+    <td  class="col-label">  <label>NumberOfAddress</label></td>
+       <td  class="col-input">  <input type="text" name="NumberOfAddress" placeholder="NumberOfAddress"></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>Complain</label></td>
+        <td  class="col-input">
+        <select class="custom-select" name="Complain">
+            <option value="Complain_0">0</option>
+            <option value="Complain_1">1</option>
+    
+        </select></td></tr>
+
+<tr>
+    
+    <td  class="col-label">  <label>DaySinceLastOrder</label></td>
+       <td  class="col-input">  <input type="text" name="DaySinceLastOrder" placeholder="DaySinceLastOrder"></td></tr>
+<tr>
+    <td  class="col-label">  <label>CashbackAmount</label></td>
+       <td  class="col-input">  <input type="text" name="CashbackAmount" placeholder="CashbackAmount"></td></tr>
+<tr>
+    
+    
+     
+<tr>
+     
+     
+     
+    
+            
+
+
+
+    
+
+
+
+
+    <tr class="form_wrapper">
+     <td colspan='2'> <input type="submit" value="PREDICT CHURNER "/></td>
+    </tr>
+</table>
+  </form>
+
+
+</div>
+</body>
+</html>
